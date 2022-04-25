@@ -1,42 +1,34 @@
-import {Redirect} from 'react-router-dom'
-import Cookies from 'js-cookie'
-import Header from '../Header'
+import {Component} from 'react'
 import './index.css'
+import ReactPopUp from '../ReactPopUp'
 
-const Home = () => {
-  const jwtToken = Cookies.get('jwt_token')
-  if (jwtToken === undefined) return <Redirect to="/login" />
-
-  return (
-    <>
-      <Header />
-      <div className="home-container">
-        <div className="home-content">
-          <h1 className="home-heading">Clothes That Get YOU Noticed</h1>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-img.png"
-            alt="dresses to be noticed"
-            className="home-mobile-img"
-          />
-          <p className="home-description">
-            Fashion is part of the daily air and it does not quite help that it
-            changes all the time. Clothes have always been a marker of the era
-            and we are in a revolution. Your fashion makes you been seen and
-            heard that way you are. So, celebrate the seasons new and exciting
-            fashion in your own way.
-          </p>
-          <button type="button" className="shop-now-button">
-            Shop Now
-          </button>
+class Home extends Component {
+  render() {
+    return (
+      <div>
+        <div className="home-image">
+          <div>
+            <img
+              src="https://res.cloudinary.com/debrutohq/image/upload/v1650646636/logo-studiomarigold_dktcaf.png"
+              alt="logo"
+            />
+            <h1 className="home-heading">BeSpoke Interior Design</h1>
+            <h1 className="home-heading">Solutions</h1>
+            <p className="home-paragraph">Let Us Give Your Home a New Face</p>
+          </div>
+          <div className="home-bottom-image">
+            <h1 className="home-bottom-heading">
+              GETTING PERSONALIZED INTERIOR
+            </h1>
+            <h1 className="home-bottom-heading">
+              IN HYDERABAD HAS NEVER BEEN THIS EASY
+            </h1>
+          </div>
+          <ReactPopUp data="REVAMP YOUR HOME TODAY" />
         </div>
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-img.png"
-          alt="dresses to be noticed"
-          className="home-desktop-img"
-        />
       </div>
-    </>
-  )
+    )
+  }
 }
 
 export default Home
